@@ -12,7 +12,6 @@ class UpcomingEvents extends React.Component {
     const {events} = this.props
     return (
       <>
-        <h1 className="is-size-2 my-5">Upcoming Events</h1>
         <div className="columns">
           {events.length ? (
             events.map(event => (
