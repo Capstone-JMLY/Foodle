@@ -1,6 +1,6 @@
 import React from 'react'
 import CreateEventForm from './CreateEventForm'
-import UpcomingEventCard from './UpcomingEventCard'
+import EventCard from './EventCard'
 import {connect} from 'react-redux'
 import {fetchEvents} from '../store/events'
 
@@ -8,15 +8,12 @@ class UserDashboard extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isFormOpen: false,
-      events: []
+      isFormOpen: false
     }
   }
 
-  componentDidMount() {
-    const {userId} = this.props
-    const events = this.props.fetchEvents(userId)
-    this.setState({events: events})
+  async componentDidMount() {
+    await this.props.fetchEvents()
   }
 
   handleClick = e => {
@@ -25,22 +22,23 @@ class UserDashboard extends React.Component {
 
   render() {
     const {isFormOpen} = this.state
-    console.log(this.props)
+    const {events} = this.props
+    console.log('events', events)
     return (
       <div className="container">
         <h1 className="is-size-2 my-5">Upcoming Events</h1>
+
         <div className="columns">
-          <div className="column is-one-third">
-            <UpcomingEventCard />
-          </div>
-
-          <div className="column is-one-third">
-            <UpcomingEventCard />
-          </div>
-
-          <div className="column is-one-third">
-            <UpcomingEventCard />
-          </div>
+          {events.length ? (
+            events.map(event => (
+              // console.log('event', event)
+              <div key={event.id} className="column is-one-third">
+                <EventCard {...event} />
+              </div>
+            ))
+          ) : (
+            <p>No Upcoming Events</p>
+          )}
         </div>
 
         <div>
@@ -65,13 +63,13 @@ class UserDashboard extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    userId: state.user.id
+    events: state.events.events
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchEvents: userId => dispatch(fetchEvents(userId))
+    fetchEvents: () => dispatch(fetchEvents())
   }
 }
 
