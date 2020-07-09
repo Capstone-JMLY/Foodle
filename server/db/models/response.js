@@ -2,10 +2,7 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Response = db.define('response', {
-  dateSelections: {
-    type: Sequelize.ARRAY(Sequelize.RANGE(Sequelize.DATE)),
-  },
-  textSelections: {
+  selections: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
   },
 })

@@ -5,10 +5,7 @@ const Poll = db.define('poll', {
   name: {
     type: Sequelize.ENUM('suggestions', 'location', 'availability', 'activity'),
   },
-  dateOptions: {
-    type: Sequelize.ARRAY(Sequelize.RANGE(Sequelize.DATE)),
-  },
-  textOptions: {
+  options: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
   },
 })

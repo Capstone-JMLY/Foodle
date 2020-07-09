@@ -57,12 +57,12 @@ async function seed() {
   const poll = await Promise.all([
     Poll.create({
       name: 'activity',
-      textOptions: ['breakfast+brunch', 'dimsum', 'creperies', 'new+american'],
+      options: ['breakfast+brunch', 'dimsum', 'creperies', 'new+american'],
       eventId: 1,
     }),
     Poll.create({
       name: 'activity',
-      textOptions: [
+      options: [
         'afghani',
         'african',
         'senegalese',
@@ -168,7 +168,7 @@ async function seed() {
     }),
     Poll.create({
       name: 'suggestions',
-      textOptions: [
+      options: [
         'e47007f66cdc681f24c19060fbacd85d743045e7',
         'ChIJ5WwRiJxZwokRqwn5bsM15ek',
         'ChIJ8UwiNndZwokRdRVevqF6DWw',
@@ -181,22 +181,22 @@ async function seed() {
 
   const response = await Promise.all([
     Response.create({
-      textSelections: ['dimsum'],
+      selections: ['dimsum'],
       pollId: 1,
       userId: 1,
     }),
     Response.create({
-      textSelections: ['breakfast+brunch', 'dimsum', 'creperies'],
+      selections: ['breakfast+brunch', 'dimsum', 'creperies'],
       pollId: 1,
       userId: 2,
     }),
     Response.create({
-      textSelections: ['dimsum', 'creperies', 'new+american'],
+      selections: ['dimsum', 'creperies', 'new+american'],
       pollId: 1,
       userId: 3,
     }),
     Response.create({
-      textSelections: [
+      selections: [
         'afghani',
         'african',
         'senegalese',
@@ -302,12 +302,12 @@ async function seed() {
       userId: 1,
     }),
     Response.create({
-      textSelections: ['tacos', 'colombian', 'french'],
+      selections: ['tacos', 'colombian', 'french'],
       pollId: 2,
       userId: 2,
     }),
     Response.create({
-      textSelections: ['bbq', 'tacos', 'mediterranean', 'falafel'],
+      selections: ['bbq', 'tacos', 'mediterranean', 'falafel'],
       pollId: 2,
       userId: 3,
     }),
