@@ -9,35 +9,33 @@ const Event = db.define('event', {
       notEmpty: true,
     },
   },
-  startTime: {
-    type: Sequelize.DATE,
-  },
-  endTime: {
+  time: {
     type: Sequelize.DATE,
   },
   googlePlacesId: {
     type: Sequelize.STRING,
   },
-  activityType: {
-    type: Sequelize.STRING,
-    defaultValue: 'restaurant',
-  },
   activitySubtype: {
     type: Sequelize.STRING,
-  },
-  city: {
-    type: Sequelize.STRING,
-    defaultValue: 'new+york',
   },
   neighborhood: {
     type: Sequelize.STRING,
   },
+  initialDueDate: {
+    type: Sequelize.DATE,
+  },
+  activityType: {
+    type: Sequelize.STRING,
+    defaultValue: 'restaurant',
+  },
+
+  city: {
+    type: Sequelize.STRING,
+    defaultValue: 'new+york',
+  },
   allowSuggestions: {
     type: Sequelize.BOOLEAN,
     defaultValue: false,
-  },
-  initialDueDate: {
-    type: Sequelize.DATE,
   },
   urlKey: {
     type: Sequelize.STRING,

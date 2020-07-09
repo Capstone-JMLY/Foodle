@@ -23,8 +23,7 @@ async function seed() {
   const events = await Promise.all([
     Event.create({
       name: 'Saturday Brunch',
-      startTime: new Date('2020-07-11 12:00'),
-      endTime: new Date('2020-07-11 15:00'),
+      time: new Date('2020-07-11 12:00'),
       activityType: 'restaurant',
       city: 'new+york',
       neighborhood: 'soho',
@@ -32,8 +31,7 @@ async function seed() {
     }),
     Event.create({
       name: 'Girlz Night',
-      startTime: new Date('2020-07-17 18:00'),
-      endTime: new Date('2020-07-17 21:00'),
+      time: new Date('2020-07-17 18:00'),
       activityType: 'restaurant',
       city: 'new+york',
       neighborhood: 'east+village',
