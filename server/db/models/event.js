@@ -6,33 +6,55 @@ const Event = db.define('event', {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true
-    }
+      notEmpty: true,
+    },
   },
-  time: {
-    type: Sequelize.RANGE(Sequelize.DATE)
+  startTime: {
+    type: Sequelize.DATE,
   },
-  location: {
-    type: Sequelize.STRING
+  endTime: {
+    type: Sequelize.DATE,
+  },
+  googlePlacesId: {
+    type: Sequelize.STRING,
+  },
+  activityType: {
+    type: Sequelize.STRING,
+    defaultValue: 'restaurant',
+  },
+  activitySubtype: {
+    type: Sequelize.STRING,
+  },
+  city: {
+    type: Sequelize.STRING,
+    defaultValue: 'new+york',
+  },
+  neighborhood: {
+    type: Sequelize.STRING,
   },
   allowSuggestions: {
-    type: Sequelize.BOOLEAN
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
   },
   initialDueDate: {
-    type: Sequelize.DATE
-  }
+    type: Sequelize.DATE,
+  },
+  urlKey: {
+    type: Sequelize.STRING,
+  },
+  finalized: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+  },
 })
 
 //method to create random confirmation number
-Event.prototype.createConfirmationNumber = () => {
-  let confirmationNum =
-    Math.random()
-      .toString(36)
-      .substring(2, 15) +
-    Math.random()
-      .toString(36)
-      .substring(2, 15)
-  return confirmationNum
-}
+Event.beforeCreate((event) => {
+  let key =
+    Math.random().toString(36).substring(2, 15) +
+    Math.random().toString(36).substring(2, 15)
+
+  event.urlKey = key
+})
 
 module.exports = Event
