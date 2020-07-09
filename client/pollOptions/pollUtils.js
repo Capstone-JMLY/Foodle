@@ -4,7 +4,19 @@ import location from './location'
 // filter activity object based on contents of a selections array
 // selectionsArr contains the search strings (keys) of selected activity sub-types in the activity object
 export const activityFilter = (selectionsArr) => {
-  // TBD
+  const filteredActivity = {}
+
+  Object.keys(activity).forEach((type) => {
+    Object.keys(activity[type]).forEach((subtype) => {
+      if (selectionsArr.includes(subtype)) {
+        if (!filteredActivity[type]) filteredActivity[type] = {}
+        filteredActivity[type][subtype] = activity[type][subtype]
+      }
+    })
+    return filteredActivity
+  })
+
+  return filteredActivity
 }
 
 // filter location object based on contents of a selections array
