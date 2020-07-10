@@ -34,7 +34,8 @@ router.post('/', async (req, res, next) => {
       neighborhood: req.body.neighborhood,
       time: req.body.time,
       initialDueDate: req.body.initialDueDate,
-      activitySubtype: req.body.activitySubtype
+      activitySubtype: req.body.activitySubtype,
+      urlKey: req.body.urlKey
     })
 
     await UserEvent.create({

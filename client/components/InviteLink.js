@@ -1,48 +1,38 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-class InviteLink extends React.Component {
-  componentDidMount() {
-    // grab the event details
-    // this.props.fetchSingleEvent(?)
-  }
-
-  render() {
-    // const urlKey = this.props.event.urlKey
-    console.log(this.props)
-    const urlKey = 123
-
-    return (
-      <section className="section">
-        <div className="hero-body">
-          <div className="columns is-centered">
-            <div className="column is-half">
-              <article className="message is-primary">
-                <div className="message-header">
-                  <p>Copy and paste your event link</p>
-                </div>
-                <div className="message-body">
-                  {`http://www.foodle.com/event/${urlKey}`}
-                </div>
-              </article>
-
-              <section className="section">
-                <div className="columns is-centered">
-                  <h3 className="title is-centered">- OR -</h3>
-                </div>
-              </section>
-
-              <div className="buttons">
-                <button className="button is-link is-large is-fullwidth">
-                  E-mail your friends
-                </button>
+const InviteLink = props => {
+  const urlKey = props.history.location.state.urlKey
+  return (
+    <section className="section">
+      <div className="hero-body">
+        <div className="columns is-centered">
+          <div className="column is-half">
+            <article className="message is-primary">
+              <div className="message-header">
+                <p>Copy and paste your event link</p>
               </div>
+              <div className="message-body">
+                {`http://www.foodle.com/event/${urlKey}`}
+              </div>
+            </article>
+
+            <section className="section">
+              <div className="columns is-centered">
+                <h3 className="title is-centered">- OR -</h3>
+              </div>
+            </section>
+
+            <div className="buttons">
+              <button className="button is-link is-large is-fullwidth">
+                E-mail your friends
+              </button>
             </div>
           </div>
         </div>
-      </section>
-    )
-  }
+      </div>
+    </section>
+  )
 }
 
 const mapStateToProps = state => {
@@ -53,7 +43,7 @@ const mapStateToProps = state => {
 
 // const mapDispatchToProps = dispatch => {
 //   return {
-//     fetchSingleEvent: () => dispatch(fetchSingleEvent())
+//     fetchSingleEvent: (name, time) => dispatch(fetchSingleEvent(name, time))
 //   }
 // }
 

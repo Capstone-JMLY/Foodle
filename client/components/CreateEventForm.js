@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import activity from '../pollOptions/activity'
 import {locationFlattener} from '../pollOptions/pollUtils'
+import InviteLink from './InviteLink'
 
 class CreateEventForm extends React.Component {
   constructor(props) {
@@ -25,16 +26,34 @@ class CreateEventForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
+
+    let urlKey =
+      Math.random()
+        .toString(36)
+        .substring(2, 15) +
+      Math.random()
+        .toString(36)
+        .substring(2, 15)
+
     let newEvent = {
       name: this.state.name,
       neighborhood: this.state.neighborhood,
       time: this.state.time,
       activitySubtype: this.state.activitySubtype,
-      initialDueDate: this.state.initialDueDate
+      initialDueDate: this.state.initialDueDate,
+      urlKey: urlKey
     }
 
     this.props.createEvent(newEvent)
-    this.props.history.push('/invitelink')
+
+    this.props.history.push({
+      pathname: `/invitelink`,
+      state: {
+        urlKey: `${urlKey}`,
+        name: `${this.state.name}`,
+        time: `${this.state.time}`
+      }
+    })
   }
 
   render() {
@@ -121,7 +140,7 @@ class CreateEventForm extends React.Component {
           </div>
 
           <button className="button is-info is-centered is-large">
-            Create Event
+            Generate Event Invitation Link
           </button>
         </form>
       </div>

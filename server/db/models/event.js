@@ -47,17 +47,17 @@ const Event = db.define('event', {
 })
 
 //method to create random confirmation number
-Event.beforeCreate(event => {
-  let key =
-    Math.random()
-      .toString(36)
-      .substring(2, 15) +
-    Math.random()
-      .toString(36)
-      .substring(2, 15)
+// Event.beforeCreate(event => {
+//   let key =
+//     Math.random()
+//       .toString(36)
+//       .substring(2, 15) +
+//     Math.random()
+//       .toString(36)
+//       .substring(2, 15)
 
-  event.urlKey = key
-})
+//   event.urlKey = key
+// })
 
 // Event.sendConfirmation = async function (id) {
 //   const event = await Event.findByPk(id, {
