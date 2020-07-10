@@ -41,7 +41,8 @@ async function seed() {
       time: new Date('2020-07-10 18:00'),
       activityType: 'restaurant',
       city: 'new+york',
-      neighborhood: 'east+village'
+      neighborhood: 'east+village',
+      finalized: true
     })
   ])
 
