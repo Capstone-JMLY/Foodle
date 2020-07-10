@@ -1,6 +1,6 @@
 import React from 'react'
 
-const EventCard = (props) => {
+const EventCard = props => {
   return (
     <div className="card">
       <div className="card-image">
@@ -16,15 +16,21 @@ const EventCard = (props) => {
         <div className="media">
           <div className="media-content">
             <p className="title is-4">{props.name}</p>
-            <p className="subtitle is-6">Paul's Burgers</p>
-            <p className="subtitle is-6">Monday, July 6 @ 3:00 PM</p>
+            {props.finalized ? (
+              <div>
+                <p>Location: {props.neighborhood}</p>
+                <p>Time: {props.time}</p>
+              </div>
+            ) : (
+              <div>
+                <p>Voting still in process!</p>
+                <p>Location and Time: TBD</p>
+              </div>
+            )}
           </div>
         </div>
 
         <div className="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          <br />
-          <a href="#">paulsburgers.com</a>
           <br />
         </div>
         <footer className="card-footer">

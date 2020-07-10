@@ -26,7 +26,7 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-//create an event as a user
+// Create an event as a user
 router.post('/', async (req, res, next) => {
   try {
     const event = await Event.create({
