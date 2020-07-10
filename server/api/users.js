@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {User} = require('../db/models')
+const {User, Poll, Response} = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -37,6 +37,19 @@ router.post('/', async (req, res, next) => {
     next(error)
   }
 })
+
+// router.post('/responses', async (req, res, next) => {
+//   try {
+//     const pollResponses = await Response.create({
+//       selections: req.body.restaurants,
+//       userId: req.body.userId,
+//       pollId: req.body.pollId,
+//     })
+//     res.json(pollResponses)
+//   } catch (error) {
+//     next(error)
+//   }
+// })
 
 router.put('/:id', async (req, res, next) => {
   try {
