@@ -3,10 +3,8 @@ import {connect} from 'react-redux'
 
 class InviteLink extends React.Component {
   componentDidMount() {
-    // grab the event's unique ID
-    // fetch the event that was just created
-    // const userId = this.props.user.id
-    // this.props.fetchSingleEvent(userId)
+    // grab the event details
+    // this.props.fetchSingleEvent(?)
   }
 
   render() {
