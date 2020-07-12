@@ -11,6 +11,10 @@ function Navbar({handleClick, isLoggedIn}) {
     setBurger(!burgerState)
   }
 
+  const closeBurger = () => {
+    setBurger(false)
+  }
+
   return (
     <nav className="navbar is-info">
       <div className="navbar-brand">
@@ -35,6 +39,7 @@ function Navbar({handleClick, isLoggedIn}) {
       <div
         className={`navbar-menu ${burgerState ? 'is-active' : ''}`}
         id="navbar-menu"
+        onClick={closeBurger}
       >
         {isLoggedIn ? (
           <div className="navbar-start">
