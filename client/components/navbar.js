@@ -10,7 +10,6 @@ function Navbar({handleClick, isLoggedIn}) {
   const toggleBurger = () => {
     setBurger(!burgerState)
   }
-  console.log('burger', burgerState)
 
   return (
     <nav className="navbar is-info">
