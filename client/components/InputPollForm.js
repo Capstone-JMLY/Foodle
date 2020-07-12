@@ -13,7 +13,6 @@ export default class InputPollForm extends Component {
   }
 
   handleChange = (event) => {
-    console.log('change', this.state)
     this.setState({
       [event.target.name]: event.target.value,
     })
@@ -21,7 +20,6 @@ export default class InputPollForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log('submit', this.state)
   }
 
   render() {

@@ -11,12 +11,13 @@ class UpcomingEvents extends React.Component {
   render() {
     const {events} = this.props
     console.log('props', this.props)
+
     return (
       <>
-        <div className="columns">
+        <div className="columns is-multiline">
           {events.length ? (
             events.map((event) => (
-              <div key={event.id} className="column is-one-third">
+              <div key={event.id} className="column is-one-third ">
                 <EventCard {...event} />
               </div>
             ))

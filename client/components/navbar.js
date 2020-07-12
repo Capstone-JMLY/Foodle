@@ -14,8 +14,14 @@ const Navbar = ({handleClick, isLoggedIn}) => (
     {isLoggedIn ? (
       <div className="navbar-start">
         {/* The navbar will show these links after you log in */}
-        <Link className="navbar-item" to="/home">
+        <Link className="navbar-item" to="/">
           Home
+        </Link>
+        <Link className="navbar-item" to="/home">
+          My Events
+        </Link>
+        <Link className="navbar-item" to="/newevent">
+          Create Event
         </Link>
         <a className="navbar-item" href="#" onClick={handleClick}>
           Logout
@@ -38,17 +44,17 @@ const Navbar = ({handleClick, isLoggedIn}) => (
 /**
  * CONTAINER
  */
-const mapState = state => {
+const mapState = (state) => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
   }
 }
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch) => {
   return {
     handleClick() {
       dispatch(logout())
-    }
+    },
   }
 }
 
@@ -59,5 +65,5 @@ export default connect(mapState, mapDispatch)(Navbar)
  */
 Navbar.propTypes = {
   handleClick: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
 }
