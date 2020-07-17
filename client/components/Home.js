@@ -21,14 +21,6 @@ class Home extends Component {
             </div>
           </div>
         </section>
-
-        <footer className="footer">
-          <div className="content has-text-centered">
-            <p>
-              <strong>c 2020</strong>
-            </p>
-          </div>
-        </footer>
       </>
 
       // <div className="hero-body">
