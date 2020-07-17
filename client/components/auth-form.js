@@ -10,37 +10,80 @@ const AuthForm = (props) => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
-    <div className="section">
-      <form onSubmit={handleSubmit} name={name}>
-        {displayName !== 'Login' ? (
-          <div className="field">
-            <label htmlFor="name" className="label">
-              <small>Name</small>
-            </label>
-            <input name="name" type="text" className="input" />
+    <section className="hero is-primary is-fullheight">
+      <div className="hero-body">
+        <div className="container">
+          <div className="columns is-centered">
+            <div className="column is-5-tablet is-4-desktop is-3-widescreen">
+              <form className="box" onSubmit={handleSubmit} name={name}>
+                {displayName !== 'Login' ? (
+                  <div className="field">
+                    <label htmlFor="name" className="label">
+                      Name
+                    </label>
+                    <div className="control has-icons-left">
+                      <input
+                        name="name"
+                        type="text"
+                        className="input"
+                        placeholder="e.g. Sally"
+                        required
+                      />
+                      <span className="icon is-small is-left">
+                        <i className="fa fa-user-circle"></i>
+                      </span>
+                    </div>
+                  </div>
+                ) : null}
+
+                <div className="field">
+                  <label htmlFor="email" className="label">
+                    Email
+                  </label>
+                  <div className="control has-icons-left">
+                    <input
+                      name="email"
+                      type="text"
+                      className="input"
+                      placeholder="e.g. sally@gmail.com"
+                      required
+                    />
+                    <span className="icon is-small is-left">
+                      <i className="fa fa-envelope"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="field">
+                  <label htmlFor="password" className="label">
+                    Password
+                  </label>
+                  <div className="control has-icons-left">
+                    <input
+                      name="password"
+                      type="password"
+                      className="input"
+                      placeholder="*******"
+                      required
+                    />
+                    <span className="icon is-small is-left">
+                      <i className="fa fa-lock"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <button className="button is-success" type="submit">
+                    {displayName}
+                  </button>
+                </div>
+                {error && error.response && <div> {error.response.data} </div>}
+              </form>
+            </div>
           </div>
-        ) : null}
-        <div className="field">
-          <label htmlFor="email" className="label">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" className="input" />
         </div>
-        <div className="field">
-          <label htmlFor="password" className="label">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" className="input" />
-        </div>
-        <div>
-          <button className="button is-info" type="submit">
-            {displayName}
-          </button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
-      {/* <a href="/auth/google">{displayName} with Google</a> */}
-    </div>
+      </div>
+    </section>
   )
 }
 
