@@ -11,6 +11,8 @@ class EventCard extends React.Component {
       minute: '2-digit',
     })
 
+    console.log('propyo', this.props)
+
     const neighborhood = this.props.neighborhood
     const location = flatLocation[neighborhood].displayName
 
@@ -25,12 +27,12 @@ class EventCard extends React.Component {
                   <p className="has-text-info has-text-weight-semibold">
                     Confirmed
                   </p>
-                  <p>
-                    Where: {this.props.googlePlacesId} in {location}
-                  </p>
+
                   <p>
                     When: {date} {hour}
                   </p>
+                  <p>Where: {location}</p>
+                  <p>What: {this.props.googlePlacesId}</p>
                 </div>
               ) : (
                 <div>
@@ -41,6 +43,7 @@ class EventCard extends React.Component {
                     When: {date} {hour}
                   </p>
                   <p>Where: {location}</p>
+                  <p>What: Waiting on votes</p>
                 </div>
               )}
             </div>
@@ -50,11 +53,14 @@ class EventCard extends React.Component {
             <br />
           </div>
           <footer className="card-footer">
+            <div className="card-footer-item">
+              {this.props.users[0].userEvent.isOrganizer ? 'Admin' : 'Guest'}
+            </div>
             <Link
               className="card-footer-item"
               to={`/event/${this.props.urlKey}`}
             >
-              See Event Details
+              Event Details
             </Link>
           </footer>
         </div>
