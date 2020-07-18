@@ -51,6 +51,7 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserDashboard} />
+            <Route path="/userprofile" component={UserHome} />
             <Route path="/piechart" component={PieChartData} />
             <Route path="/invitelink" component={InviteLink} />
             <Route path="/newevent" component={CreateEventForm} />

@@ -86,6 +86,11 @@ div.tooltip-donut {
   font-family: 'Montserrat', sans-serif;
 }
 
+.profileImage {
+  height: 200px;
+  width: auto;
+}
+
 @media (max-width: 375px) {
   .pink-image {
     display: none;
@@ -97,6 +102,10 @@ div.tooltip-donut {
 
   .logopadding {
     padding-top: 16px;
+  }
+
+  .profileLogoImage {
+    margin-left: 30px;
   }
 }
 
