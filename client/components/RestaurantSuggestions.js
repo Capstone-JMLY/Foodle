@@ -14,6 +14,7 @@ class RestaurantSuggestions extends Component {
     }
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this)
     this.voteRestaurant = this.voteRestaurant.bind(this)
+    this.voteNoneOfThese = this.voteNoneOfThese.bind(this)
   }
 
   handleCheckboxChange(restaurant, isChecked) {
@@ -43,6 +44,13 @@ class RestaurantSuggestions extends Component {
     this.setState({selectedRestaurants: []})
   }
 
+  voteNoneOfThese() {
+    this.props.addOrUpdateResponse(this.props.event.id, this.props.poll.id, [
+      {name: 'None Of These'},
+    ])
+    this.setState({selectedRestaurants: []})
+  }
+
   render() {
     const {event, poll, user} = this.props
 
@@ -64,8 +72,8 @@ class RestaurantSuggestions extends Component {
             </h2>
 
             <div className="content is-medium">
-              Select up to 3 choices to submit selected votes OR choose no
-              preference
+              {/* Select up to 3 choices to submit selected votes OR choose no
+              preference */}
             </div>
 
             <div className="columns">
@@ -101,13 +109,7 @@ class RestaurantSuggestions extends Component {
               <button
                 type="button"
                 className="button is-warning is-centered is-large"
-                onClick={() =>
-                  this.props.addOrUpdateResponse(event.id, poll.id, [
-                    {
-                      name: 'None Of These',
-                    },
-                  ])
-                }
+                onClick={() => this.voteNoneOfThese()}
               >
                 NONE OF THESE
               </button>
