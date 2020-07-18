@@ -19,12 +19,14 @@ function Navbar({handleClick, isLoggedIn}) {
     <nav className="navbar is-primary nav-padding">
       <div className="navbar-brand">
         <Link className="" to="/">
-          <img src="/foodle.png"></img>
+          <img src="/foodle.png" className="logopadding"></img>
         </Link>
 
         <a
           role="button"
-          className={`navbar-burger burger ${burgerState ? 'is-active' : ''}`}
+          className={`navbar-burger burger bpadding ${
+            burgerState ? 'is-active' : ''
+          }`}
           aria-label="menu"
           aria-expanded="false"
           data-target="navbar-menu"

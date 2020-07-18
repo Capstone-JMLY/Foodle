@@ -64,24 +64,6 @@ div.tooltip-donut {
   padding-left: 100px;
 }
 
-@media (max-width: 530px) {
-  .circle-legend {
-    display: none;
-  }
-
-  .circle-legend--mobile {
-    display: block;
-  }
-
-  .pie-container {
-    padding-left: 85px;
-  }
-
-  .message-break {
-    overflow-wrap: anywhere;
-  }
-}
-
 .bullet {
   font-size: 24px;
 }
@@ -111,5 +93,33 @@ div.tooltip-donut {
 
   .message-break {
     overflow-wrap: anywhere;
+  }
+
+  .logopadding {
+    padding-top: 16px;
+  }
+}
+
+@media (max-width: 530px) {
+  .circle-legend {
+    display: none;
+  }
+
+  .circle-legend--mobile {
+    display: block;
+  }
+
+  .pie-container {
+    padding-left: 85px;
+  }
+
+  .message-break {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 1030px) {
+  .bpadding {
+    padding: 40px;
   }
 }
