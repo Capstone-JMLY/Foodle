@@ -19,6 +19,7 @@ class CreateEventForm extends React.Component {
       openQueens: false,
       openBronx: false,
       openStatenIsland: false,
+      city: '',
     }
   }
 
@@ -52,10 +53,17 @@ class CreateEventForm extends React.Component {
     })
   }
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    })
+  handleChange = (e, city) => {
+    if (city) {
+      this.setState({
+        [e.target.name]: e.target.value,
+        city,
+      })
+    } else {
+      this.setState({
+        [e.target.name]: e.target.value,
+      })
+    }
   }
 
   handleSubmit = (e) => {
@@ -72,6 +80,7 @@ class CreateEventForm extends React.Component {
       activitySubtype: this.state.activitySubtype,
       initialDueDate: this.state.initialDueDate,
       urlKey: urlKey,
+      city: this.state.city,
     }
 
     this.props.createEvent(newEvent)
@@ -180,7 +189,9 @@ class CreateEventForm extends React.Component {
                         className="mr-2"
                         value={n.searchStr}
                         name="neighborhood"
-                        onChange={this.handleChange}
+                        onChange={(event) =>
+                          this.handleChange(event, 'manhattan')
+                        }
                       />
                       {n.displayName}
                     </label>
@@ -206,7 +217,9 @@ class CreateEventForm extends React.Component {
                         className="mr-2"
                         value={n.searchStr}
                         name="neighborhood"
-                        onChange={this.handleChange}
+                        onChange={(event) =>
+                          this.handleChange(event, 'brooklyn')
+                        }
                       />
                       {n.displayName}
                     </label>
@@ -232,7 +245,7 @@ class CreateEventForm extends React.Component {
                         className="mr-2"
                         value={n.searchStr}
                         name="neighborhood"
-                        onChange={this.handleChange}
+                        onChange={(event) => this.handleChange(event, 'queens')}
                       />
                       {n.displayName}
                     </label>
@@ -258,7 +271,7 @@ class CreateEventForm extends React.Component {
                         className="mr-2"
                         value={n.searchStr}
                         name="neighborhood"
-                        onChange={this.handleChange}
+                        onChange={(event) => this.handleChange(event, 'bronx')}
                       />
                       {n.displayName}
                     </label>
@@ -283,7 +296,9 @@ class CreateEventForm extends React.Component {
                         className="mr-2"
                         value={n.searchStr}
                         name="neighborhood"
-                        onChange={this.handleChange}
+                        onChange={(event) =>
+                          this.handleChange(event, 'staten+island')
+                        }
                       />
                       {n.displayName}
                     </label>

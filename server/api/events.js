@@ -58,6 +58,7 @@ router.post('/', async (req, res, next) => {
       initialDueDate: req.body.initialDueDate,
       activitySubtype: req.body.activitySubtype,
       urlKey: req.body.urlKey,
+      city: req.body.city,
     })
 
     const userEvent = await UserEvent.create({
