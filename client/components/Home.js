@@ -5,7 +5,6 @@ class Home extends Component {
   render() {
     return (
       <div className="columns is-gapless background-hero-image">
-        {/* <img src="/foodlecolorful.png" /> */}
         <div className="column has-background-dark is-half">
           <div className="container">
             <div className="column is-centered is-vcentered is-mobile">

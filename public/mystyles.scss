@@ -166,5 +166,9 @@ div.tooltip-donut {
 
 .background-hero-image {
   background: center / cover no-repeat url('/foodlecolorful.png');
-  height: 100vh;
+  height: calc(100vh - 100px);
+
+  @media (max-width: 530px) {
+    background-image: none;
+  }
 }
