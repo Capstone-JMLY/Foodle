@@ -143,7 +143,6 @@ class CreateEventForm extends React.Component {
               />
             </div>
           </div>{' '}
-          */}
           <div className="field my-6">
             <label className="title is-5">Event Time</label>
             <div className="control mt-3">

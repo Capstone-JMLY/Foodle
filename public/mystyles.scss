@@ -101,6 +101,15 @@ div.tooltip-donut {
   .logopadding {
     padding-top: 16px;
   }
+
+  .message-break {
+    overflow-wrap: anywhere;
+  }
+
+  .logotype {
+    max-width: 280px;
+    padding-top: 12px;
+  }
 }
 
 @media (max-width: 530px) {
@@ -116,9 +125,14 @@ div.tooltip-donut {
     padding-left: 85px;
   }
 
-  .message-break {
-    overflow-wrap: anywhere;
-  }
+  // .message-break {
+  //   overflow-wrap: anywhere;
+  // }
+
+  // .logotype {
+  //   max-width: 280px;
+  //   padding-top: 12px;
+  // }
 }
 
 @media (max-width: 1030px) {

@@ -19,7 +19,7 @@ function Navbar({handleClick, isLoggedIn}) {
     <nav className="navbar is-primary nav-padding">
       <div className="navbar-brand">
         <Link to="/">
-          <img className="logotype logopadding" src="/foodle.png"></img>
+          <img className="logotype" src="/foodle.png"></img>
         </Link>
 
         <a
