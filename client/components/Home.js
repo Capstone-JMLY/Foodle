@@ -4,8 +4,9 @@ import {Link} from 'react-router-dom'
 class Home extends Component {
   render() {
     return (
-      <div className="columns is-gapless">
-        <div className="column has-background-dark">
+      <div className="columns is-gapless background-hero-image">
+        {/* <img src="/foodlecolorful.png" /> */}
+        <div className="column has-background-dark is-half">
           <div className="container">
             <div className="column is-centered is-vcentered is-mobile">
               <div className="column is-narrow has-text-centered">
@@ -35,10 +36,6 @@ class Home extends Component {
               </h1>
             </div>
           </div>
-        </div>
-
-        <div className="column pink-image">
-          <img src="/foodlecolorful.png"></img>
         </div>
       </div>
     )
