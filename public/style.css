@@ -17651,18 +17651,16 @@ div.tooltip-donut {
   font-family: 'Montserrat', sans-serif;
 }
 
+.message-break {
+  word-wrap: break-word;
+}
+
 @media (max-width: 770px) {
   .pink-image {
     display: none;
   }
-  .message-break {
-    overflow-wrap: anywhere;
-  }
   .logopadding {
     padding-top: 16px;
-  }
-  .message-break {
-    overflow-wrap: anywhere;
   }
   .logotype {
     max-width: 280px;
